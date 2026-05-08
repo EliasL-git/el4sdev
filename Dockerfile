@@ -16,4 +16,5 @@ RUN npm install -g serve@14.1.2
 COPY --from=build /app/dist ./dist
 ENV PORT=3000
 EXPOSE 3000
-CMD ["sh", "-c", "npx serve -s dist -l tcp:$PORT"]
+# Bind explicitly to 0.0.0.0 so Render's provided host/IP isn't used as the listen address
+CMD ["sh", "-c", "serve -s dist -l tcp://0.0.0.0:$PORT"]
