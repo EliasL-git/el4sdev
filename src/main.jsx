@@ -1,0 +1,31 @@
+import React, { useEffect, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+import Home from './pages/Home'
+import NonCommercial from './pages/NonCommercial'
+import Photography from './pages/Photography'
+import './styles/global.css'
+
+function Router() {
+  const [path, setPath] = useState(location.pathname)
+
+  useEffect(() => {
+    const onPop = () => setPath(location.pathname)
+    window.addEventListener('popstate', onPop)
+    window.navigate = (to) => {
+      history.pushState({}, '', to)
+      setPath(to)
+      window.dispatchEvent(new Event('popstate'))
+    }
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
+  if (path === '/photography') return <Photography />
+  if (path === '/non-commercial') return <NonCommercial />
+  return <Home />
+}
+
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Router />
+  </React.StrictMode>
+)

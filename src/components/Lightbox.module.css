@@ -1,0 +1,136 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow-y: auto;
+  animation: overlayIn 0.22s ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  width: auto;
+  animation: panelIn 0.28s ease both;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.img {
+  display: block;
+  max-width: calc(100vw - 60px);
+  max-height: calc(100vh - 160px);
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  margin: 0 auto;
+  object-position: center center;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.panel:hover .img {
+  transform: scale(1.02);
+  filter: drop-shadow(0 18px 50px rgba(0, 0, 0, 0.18));
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0 6px 4px;
+}
+
+.caption {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actionLink {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: transparent;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  text-decoration: none;
+}
+.actionLink:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+  background: var(--surface-2);
+  opacity: 1;
+}
+.actionLinkAccent {
+  color: var(--accent);
+  border-color: rgba(200, 169, 110, 0.25);
+}
+.actionLinkAccent:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1;
+  transition: color var(--transition), border-color var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+.closeBtn:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+  transform: scale(1.05);
+}

@@ -1,0 +1,86 @@
+.gallery {
+  width: 100%;
+  max-width: 1140px;
+  column-count: 3;
+  column-gap: 14px;
+  padding: 0 20px 60px;
+  animation: galleryIn 0.6s ease both;
+}
+
+@keyframes galleryIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover-dim: dim siblings when hovering any photo */
+.gallery:hover .photo {
+  opacity: 0.4;
+}
+.gallery:hover .photo:hover {
+  opacity: 1;
+}
+
+.photo {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin: 0 0 14px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: photoIn 0.7s ease both;
+  transition: transform var(--transition), opacity var(--transition);
+  cursor: zoom-in;
+}
+
+.photo:nth-child(4n+1) { animation-delay: 0.06s; }
+.photo:nth-child(4n+2) { animation-delay: 0.12s; }
+.photo:nth-child(4n+3) { animation-delay: 0.18s; }
+.photo:nth-child(4n+4) { animation-delay: 0.24s; }
+
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
+}
+
+.photo:hover {
+  transform: translateY(-2px);
+}
+
+.photo:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Ensure thumbnail images are centered when they don't take full width */
+.photo img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* fit-10 mode: 5 cols, images sized to fill 2 rows */
+.fit10 {
+  column-count: 5;
+  column-gap: 10px;
+  max-width: 1400px;
+}
+
+@keyframes photoIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fit10 .photo {
+  margin: 0 0 10px;
+}
+.fit10 .photo img {
+  height: calc((100vh - 180px) / 2);
+  object-fit: cover;
+}
+
+/* Responsive column breakpoints */
+@media (max-width: 1200px) { .fit10 { column-count: 4; } }
+@media (max-width: 960px)  { .gallery { column-count: 2; } .fit10 { column-count: 3; } }
+@media (max-width: 600px)  { .gallery { column-count: 1; } .fit10 { column-count: 2; } }
+@media (max-width: 420px)  { .gallery { padding: 0 12px 40px; } }
