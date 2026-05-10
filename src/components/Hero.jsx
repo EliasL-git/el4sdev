@@ -1,4 +1,5 @@
 import React from 'react'
+import Quotes from './Quotes'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -8,6 +9,8 @@ export default function Hero() {
         <span className={styles.label}>Portfolio</span>
 
         <h1 className={styles.name}>el4s</h1>
+
+        <Quotes />
 
         <p className={styles.tagline}>
           Photographer&nbsp;&middot;&nbsp;Actor&nbsp;&middot;&nbsp;Developer
