@@ -10,23 +10,29 @@
 .card {
   margin: 0;
   padding: 14px 18px;
-  border-left: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   max-width: 100%;
   width: 100%;
   text-align: left;
+  background: rgba(255, 59, 31, 0.03);
+  clip-path: polygon(0 0, 100% 2px, 100% 100%, 0 calc(100% - 2px));
 }
 
 .text {
   color: var(--text);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
+  font-weight: 300;
   line-height: 1.6;
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .author {
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--text-muted);
-  font-size: 0.84rem;
-  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .status {

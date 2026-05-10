@@ -103,7 +103,7 @@
 }
 .actionLinkAccent {
   color: var(--accent);
-  border-color: rgba(200, 169, 110, 0.25);
+  border-color: rgba(139, 22, 40, 0.3);
 }
 .actionLinkAccent:hover {
   background: var(--accent-dim);

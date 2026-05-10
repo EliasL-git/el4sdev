@@ -51,7 +51,7 @@
 
 .photo:hover img {
   transform: scale(1.03);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25), 0 0 24px rgba(139, 22, 40, 0.1);
 }
 
 /* Ensure thumbnail images are centered when they don't take full width */

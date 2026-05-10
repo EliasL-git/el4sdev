@@ -55,11 +55,13 @@
 }
 
 .heading {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--text);
   margin: 0;
+  text-shadow: none;
 }
 
 .status {
