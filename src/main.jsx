@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import Home from './pages/Home'
 import NonCommercial from './pages/NonCommercial'
 import Photography from './pages/Photography'
+import Freexyz from './pages/Freexyz'
 import './styles/global.css'
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
 
   if (path === '/photography') return <Photography />
   if (path === '/non-commercial') return <NonCommercial />
+  if (path === '/freexyz') return <Freexyz />
   return <Home />
 }
 
