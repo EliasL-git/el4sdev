@@ -25,7 +25,7 @@ export default function SiteFooter() {
         <nav className={styles.links} aria-label="Footer">
           <a href="/photography" onClick={(e) => nav(e, '/photography')}>Photography</a>
           <a href="/non-commercial" onClick={(e) => nav(e, '/non-commercial')}>Non-commercial</a>
-          <a href="mailto:hello@el4s.dev">hello@el4s.dev</a>
+          <a href="mailto:el4s@el4s.dev">el4s@el4s.dev</a>
         </nav>
 
         <p className={styles.meta}>

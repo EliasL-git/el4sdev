@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Quotes from './Quotes'
+import { mediaUrl } from '../lib/media'
 import styles from './Hero.module.css'
 
 const FEATURE_IMAGE = 'IMG_0541.JPEG'
@@ -56,7 +57,7 @@ export default function Hero() {
             </a>
             <a
               className={styles.btnGhost}
-              href="mailto:hello@el4s.dev"
+              href="mailto:el4s@el4s.dev"
             >
               Get in touch
             </a>
@@ -66,7 +67,7 @@ export default function Hero() {
         <div className={styles.right}>
           <div className={styles.feature}>
             <img
-              src={`/media/${FEATURE_IMAGE}`}
+              src={mediaUrl(FEATURE_IMAGE)}
               alt="Featured photograph"
               className={styles.featureImg}
               loading="eager"

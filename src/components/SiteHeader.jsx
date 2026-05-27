@@ -45,7 +45,7 @@ export default function SiteHeader({ current }) {
             Non-commercial
           </a>
           <a
-            href="mailto:hello@el4s.dev"
+            href="mailto:el4s@el4s.dev"
             className={`${styles.link} ${styles.linkCta}`}
           >
             Contact

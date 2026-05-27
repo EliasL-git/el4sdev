@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { mediaUrl } from '../lib/media'
 import styles from './Lightbox.module.css'
 
 export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
@@ -12,7 +13,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
     const img = new window.Image()
     img.onload = () =>
       setMeta({ width: img.naturalWidth, height: img.naturalHeight, loaded: true })
-    img.src = `/media/${src}`
+    img.src = mediaUrl(src)
   }, [src])
 
   // Keyboard shortcuts: Esc closes, ← / → navigate.
@@ -83,7 +84,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
         <img
           key={src}
           className={styles.img}
-          src={`/media/${src}`}
+          src={mediaUrl(src)}
           alt="Full-size view"
         />
       </div>
@@ -104,13 +105,13 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
         <span className={styles.actions}>
           <a
             className={styles.actionLink}
-            href={`/media/${src}`}
+            href={mediaUrl(src)}
             target="_blank"
             rel="noopener noreferrer"
           >
             Open full
           </a>
-          <a className={styles.actionLink} href={`/media/${src}`} download>
+          <a className={styles.actionLink} href={mediaUrl(src)} download>
             Download
           </a>
         </span>

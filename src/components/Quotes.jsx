@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { mediaUrl } from '../lib/media'
 import styles from './Quotes.module.css'
 
 export default function Quotes() {
@@ -11,7 +12,7 @@ export default function Quotes() {
   // Fetch once.
   useEffect(() => {
     let mounted = true
-    fetch('/media/quotes.json', { cache: 'no-store' })
+    fetch(mediaUrl('quotes.json'), { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load quotes')
         return res.json()

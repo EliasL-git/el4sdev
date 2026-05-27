@@ -1,4 +1,5 @@
 import React from 'react'
+import { mediaUrl } from '../lib/media'
 import styles from './Gallery.module.css'
 
 export default function Gallery({ images, onImageClick }) {
@@ -25,7 +26,7 @@ export default function Gallery({ images, onImageClick }) {
             aria-label={`View photo ${i + 1} — ${src}`}
           >
             <img
-              src={`/media/${src}`}
+              src={mediaUrl(src)}
               alt={`Photograph ${i + 1}`}
               loading={i < 4 ? 'eager' : 'lazy'}
               decoding="async"

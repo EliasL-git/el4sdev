@@ -3,6 +3,7 @@ import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import Gallery from '../components/Gallery'
 import Lightbox from '../components/Lightbox'
+import { mediaUrl } from '../lib/media'
 import styles from './Photography.module.css'
 
 export default function Photography() {
@@ -12,7 +13,7 @@ export default function Photography() {
   const [openIndex, setOpenIndex] = useState(null)
 
   useEffect(() => {
-    fetch('/media/list.json')
+    fetch(mediaUrl('list.json'))
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load image list')
         return res.json()

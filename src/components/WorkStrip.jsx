@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { mediaUrl } from '../lib/media'
 import styles from './WorkStrip.module.css'
 
 const FEATURE_IMAGE = 'IMG_0541.JPEG'
@@ -8,7 +9,7 @@ export default function WorkStrip() {
 
   useEffect(() => {
     let mounted = true
-    fetch('/media/list.json')
+    fetch(mediaUrl('list.json'))
       .then((res) => (res.ok ? res.json() : []))
       .then((list) => {
         if (!mounted) return
@@ -59,7 +60,7 @@ export default function WorkStrip() {
               aria-label={`Open photography — ${src}`}
             >
               <img
-                src={`/media/${src}`}
+                src={mediaUrl(src)}
                 alt=""
                 loading="lazy"
                 decoding="async"

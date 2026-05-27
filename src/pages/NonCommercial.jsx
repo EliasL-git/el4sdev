@@ -52,7 +52,7 @@ export default function NonCommercial() {
             <p>
               If you&rsquo;d like to license an image, commission new work, or
               discuss collaboration, write to{' '}
-              <a href="mailto:hello@el4s.dev">hello@el4s.dev</a>. I read every
+              <a href="mailto:el4s@el4s.dev">el4s@el4s.dev</a>. I read every
               message and reply personally.
             </p>
 
