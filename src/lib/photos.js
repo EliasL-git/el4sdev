@@ -28,10 +28,9 @@ export function photoUrl(name) {
 }
 
 /**
- * One stable, randomly-picked photograph per page load. Hero uses it as
- * the featured image; WorkStrip excludes it so the same photo doesn't
- * appear twice on the home page. Resets to a new random pick on full
- * reload — client-side route changes keep the same one.
+ * One stable, randomly-picked photograph per page load. The hero uses
+ * it as the featured image. Resets to a new random pick on full reload
+ * — client-side route changes keep the same one.
  */
 export const featured =
   photos.length > 0 ? photos[Math.floor(Math.random() * photos.length)] : null

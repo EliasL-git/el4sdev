@@ -10,7 +10,7 @@
   --text-dim:       #5a544d;
   --accent:         #c8424f;
   --accent-hover:   #d75864;
-  --accent-soft:    rgba(200, 66, 79, 0.12);
+  --accent-soft:    rgba(200, 66, 79, 0.18);
 
   --font-display:   'Fraunces', Georgia, serif;
   --font-body:      'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -41,6 +41,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* ── Custom cursor takes over on fine pointer devices ─────── */
+@media (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+  a, button, [role="button"] {
+    cursor: none;
+  }
+  input, textarea, [contenteditable] {
+    cursor: text;
+  }
 }
 
 /* Subtle film grain — adds depth & cinema feel */
