@@ -1,45 +1,91 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Quotes from './Quotes'
 import styles from './Hero.module.css'
 
+const FEATURE_IMAGE = 'IMG_0541.JPEG'
+
 export default function Hero() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    const t = window.setTimeout(() => setMounted(true), 40)
+    return () => window.clearTimeout(t)
+  }, [])
+
+  function nav(e, to) {
+    e.preventDefault()
+    window.navigate(to)
+  }
+
   return (
-    <section className={styles.hero}>
-      <div className={styles.vignette} aria-hidden="true" />
-      <div className={styles.content}>
-        <span className={styles.label}>Portfolio</span>
+    <section className={`${styles.hero} ${mounted ? styles.in : ''}`}>
+      <div className={styles.grid}>
+        <div className={styles.left}>
+          <div className={styles.eyebrow}>
+            <span className={styles.dashLong} aria-hidden="true" />
+            <span className={styles.eyebrowText}>Portfolio · 2026</span>
+          </div>
 
-        <h1 className={styles.name}>el4s</h1>
+          <h1 className={styles.name}>
+            <span className={styles.nameItalic}>el</span>
+            <span className={styles.nameNumeral}>4</span>
+            <span className={styles.nameItalic}>s</span>
+          </h1>
 
+          <p className={styles.tagline}>
+            <span>Photographer.</span>
+            <span className={styles.taglineSep} aria-hidden="true">/</span>
+            <span>Actor.</span>
+            <span className={styles.taglineSep} aria-hidden="true">/</span>
+            <span>Developer.</span>
+          </p>
+
+          <p className={styles.lede}>
+            A working archive of images, performances, and code &mdash;
+            ongoing, unfinished, and intentionally so.
+          </p>
+
+          <div className={styles.actions}>
+            <a
+              className={styles.btnPrimary}
+              href="/photography"
+              onClick={(e) => nav(e, '/photography')}
+            >
+              <span>View photography</span>
+              <span className={styles.btnArrow} aria-hidden="true">&rarr;</span>
+            </a>
+            <a
+              className={styles.btnGhost}
+              href="mailto:hello@el4s.dev"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.right}>
+          <div className={styles.feature}>
+            <img
+              src={`/media/${FEATURE_IMAGE}`}
+              alt="Featured photograph"
+              className={styles.featureImg}
+              loading="eager"
+              decoding="async"
+            />
+            <div className={styles.featureFrame} aria-hidden="true" />
+            <div className={styles.featureMeta}>
+              <span className={styles.featureLabel}>Selected</span>
+              <span className={styles.featureName}>{FEATURE_IMAGE.replace(/\.[A-Z]+$/i, '')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.aside}>
         <Quotes />
-
-        <p className={styles.tagline}>
-          Photographer&nbsp;&middot;&nbsp;Actor&nbsp;&middot;&nbsp;Developer
-        </p>
-
-        <div className={styles.divider} />
-
-        <div className={styles.actions}>
-          <a
-            className={styles.btnPrimary}
-            href="/photography"
-            onClick={(e) => {
-              e.preventDefault()
-              window.navigate('/photography')
-            }}
-          >
-            Photography
-          </a>
-          <a
-            className={styles.btnGhost}
-            href="/non-commercial"
-            onClick={(e) => {
-              e.preventDefault()
-              window.navigate('/non-commercial')
-            }}
-          >
-            Non-commercial&nbsp;&rarr;
-          </a>
+        <div className={styles.scrollHint}>
+          <span className={styles.scrollLabel}>Scroll</span>
+          <span className={styles.scrollLine} aria-hidden="true" />
         </div>
       </div>
     </section>

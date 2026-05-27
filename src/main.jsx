@@ -10,12 +10,16 @@ function Router() {
   const [path, setPath] = useState(location.pathname)
 
   useEffect(() => {
-    const onPop = () => setPath(location.pathname)
+    const onPop = () => {
+      setPath(location.pathname)
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' })
+    }
     window.addEventListener('popstate', onPop)
     window.navigate = (to) => {
+      if (to === location.pathname) return
       history.pushState({}, '', to)
       setPath(to)
-      window.dispatchEvent(new Event('popstate'))
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' })
     }
     return () => window.removeEventListener('popstate', onPop)
   }, [])

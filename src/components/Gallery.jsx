@@ -1,36 +1,40 @@
 import React from 'react'
 import styles from './Gallery.module.css'
 
-export default function Gallery({ images, fit10, onImageClick }) {
+export default function Gallery({ images, onImageClick }) {
   if (!images || images.length === 0) {
     return (
-      <p style={{ color: 'var(--text-muted)', padding: '40px 24px', textAlign: 'center' }}>
-        No images found — add files and list them in <code>media/list.json</code>.
+      <p className={styles.empty}>
+        No images found &mdash; add files and list them in <code>media/list.json</code>.
       </p>
     )
   }
 
   return (
-    <section
-      className={`${styles.gallery}${fit10 ? ` ${styles.fit10}` : ''}`}
-      aria-label="Photography gallery"
-    >
+    <section className={styles.gallery} aria-label="Photography gallery">
       {images.map((src, i) => (
         <figure
-          key={i}
-          className={styles.photo}
-          onClick={() => onImageClick(src)}
-          role="button"
-          tabIndex={0}
-          aria-label={`View photo ${i + 1}`}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault()
-              onImageClick(src)
-            }
-          }}
+          key={src}
+          className={styles.tile}
+          style={{ animationDelay: `${i * 60}ms` }}
         >
-          <img src={`/media/${src}`} alt={`Photo ${i + 1}`} loading="lazy" />
+          <button
+            type="button"
+            className={styles.button}
+            onClick={() => onImageClick(i)}
+            aria-label={`View photo ${i + 1} — ${src}`}
+          >
+            <img
+              src={`/media/${src}`}
+              alt={`Photograph ${i + 1}`}
+              loading={i < 4 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+            <span className={styles.overlay} aria-hidden="true">
+              <span className={styles.no}>{String(i + 1).padStart(2, '0')}</span>
+              <span className={styles.name}>{src.replace(/\.[A-Z]+$/i, '')}</span>
+            </span>
+          </button>
         </figure>
       ))}
     </section>
