@@ -13,11 +13,7 @@ export default function Gallery({ photos, onImageClick }) {
   return (
     <section className={styles.gallery} aria-label="Photography gallery">
       {photos.map((p, i) => (
-        <figure
-          key={p.name}
-          className={styles.tile}
-          style={{ animationDelay: `${i * 60}ms` }}
-        >
+        <figure key={p.name} className={styles.tile}>
           <button
             type="button"
             className={styles.button}
