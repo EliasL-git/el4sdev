@@ -1,31 +1,26 @@
-// Build-time bundling of every photograph in /media.
+// Auto-bundled photographs from /media — every supported image file in
+// that folder is picked up automatically. No list.json maintenance.
+//
+// Ordering: filenames sorted alphabetically/numerically. Because the
+// originals are named like IMG_0171.JPEG → IMG_0608.JPEG, that gives a
+// chronological ordering for free.
 //
 // `import.meta.glob` makes Vite emit URLs for each matched file:
-//   - dev:        served by Vite's dev server (original location)
+//   - dev:        served from the original location
 //   - production: hashed copy in /assets/, served from the deploy root
-//
-// `list.json` is imported as a JSON module — no runtime fetch, no broken
-// `/media/list.json` path possibilities. It drives both ordering and
-// inclusion: only filenames present in list.json show up on the site.
 
-import list from '../../media/list.json'
-
-const modules = import.meta.glob('/media/*.{JPEG,jpeg,JPG,jpg,PNG,png,WEBP,webp}', {
+const modules = import.meta.glob('/media/*.{JPEG,jpeg,JPG,jpg,PNG,png,WEBP,webp,AVIF,avif}', {
   eager: true,
   query: '?url',
   import: 'default',
 })
 
-const urlByName = {}
-for (const fullPath of Object.keys(modules)) {
-  const name = fullPath.split('/').pop()
-  urlByName[name] = modules[fullPath]
-}
+/** Every photograph in /media, sorted by filename. */
+export const photos = Object.entries(modules)
+  .map(([fullPath, url]) => ({ name: fullPath.split('/').pop(), url }))
+  .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
 
-/** Ordered photos as listed in media/list.json — only entries that exist on disk. */
-export const photos = list
-  .filter((name) => urlByName[name])
-  .map((name) => ({ name, url: urlByName[name] }))
+const urlByName = Object.fromEntries(photos.map((p) => [p.name, p.url]))
 
 /** Direct URL lookup by filename. Returns '' if the file isn't bundled. */
 export function photoUrl(name) {

@@ -1,37 +1,39 @@
+# el4s — Portfolio
 
-# el4s — Vite + React Portfolio
+Vite + React portfolio for `el4s` — photographer, actor, developer.
 
-This project is a minimal Vite + React scaffold for the `el4s` portfolio.
-
-Quick start:
+## Quick start
 
 ```bash
-# install dependencies
 npm install
-
-# run dev server
-npm run dev
-
-# build for production
-npm run build
-
-# preview production build
-npm run preview
+npm run dev      # http://localhost:5173/
+npm run build    # → dist/
+npm run preview  # serve the production build locally
 ```
 
-Open http://localhost:5173/ after `npm run dev`.
+## Adding photographs
 
-Files of interest:
+Drop any `.JPEG`, `.JPG`, `.PNG`, `.WEBP`, or `.AVIF` file into `/media/`.
+That's it — Vite auto-discovers every image at build time via
+`import.meta.glob`, so the gallery, home strip, and random hero image
+pick it up without any list to maintain.
+
+Files are sorted alphanumerically by filename. The originals here are
+named `IMG_0171.JPEG`, `IMG_0194.JPEG`, …, which gives a chronological
+ordering for free.
+
+Quotes for the rotating hero blurb still live in `media/quotes.json`.
+
+## Source layout
 
 - `index.html` — Vite entry
-- `src/main.jsx` — app bootstrap
-- `src/App.jsx` — main UI
-- `src/styles.css` — styling
+- `src/main.jsx` — app bootstrap + tiny hash-style router
+- `src/pages/` — Home, Photography, NonCommercial, Freexyz
+- `src/components/` — SiteHeader, SiteFooter, Hero, Quotes, WorkStrip, Gallery, Lightbox
+- `src/lib/photos.js` — auto-bundled photo registry
+- `src/lib/quotes.js` — bundled quote module
+- `src/styles/global.css` — design tokens + base styles
 
-This project now serves a single minimal React page.
+## License
 
-Default entry: `src/Plain.jsx` — a plain, minimal React page (white text on black) that is currently the default render.
-
-If you previously saw a static `plain.html`, it has been removed; the app is served via Vite and `src/main.jsx` renders `Plain` by default.
-
-If you prefer a Yarn or pnpm setup, or want TypeScript, tell me and I will add it.
+All rights reserved. See the Non-commercial page for usage terms.

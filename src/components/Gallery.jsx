@@ -5,7 +5,8 @@ export default function Gallery({ photos, onImageClick }) {
   if (!photos || photos.length === 0) {
     return (
       <p className={styles.empty}>
-        No images found &mdash; add files and list them in <code>media/list.json</code>.
+        No images found &mdash; drop JPEG / PNG / WebP files into{' '}
+        <code>media/</code> and they&rsquo;ll appear here automatically.
       </p>
     )
   }
