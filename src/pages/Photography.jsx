@@ -1,40 +1,26 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import Gallery from '../components/Gallery'
 import Lightbox from '../components/Lightbox'
-import { mediaUrl } from '../lib/media'
+import { photos } from '../lib/photos'
 import styles from './Photography.module.css'
 
 export default function Photography() {
-  const [images, setImages] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
   const [openIndex, setOpenIndex] = useState(null)
-
-  useEffect(() => {
-    fetch(mediaUrl('list.json'))
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load image list')
-        return res.json()
-      })
-      .then((list) => setImages(Array.isArray(list) ? list : []))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false))
-  }, [])
 
   const open = useCallback((i) => setOpenIndex(i), [])
   const close = useCallback(() => setOpenIndex(null), [])
   const prev = useCallback(() => {
-    if (!images || images.length === 0) return
-    setOpenIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length))
-  }, [images])
+    setOpenIndex((i) =>
+      i === null ? null : (i - 1 + photos.length) % photos.length
+    )
+  }, [])
   const next = useCallback(() => {
-    if (!images || images.length === 0) return
-    setOpenIndex((i) => (i === null ? null : (i + 1) % images.length))
-  }, [images])
+    setOpenIndex((i) => (i === null ? null : (i + 1) % photos.length))
+  }, [])
 
-  const count = images ? images.length : 0
+  const count = photos.length
 
   return (
     <div className={styles.page}>
@@ -74,18 +60,11 @@ export default function Photography() {
           </div>
         </header>
 
-        {loading && (
-          <p className={styles.status}>Loading the archive&hellip;</p>
-        )}
-        {error && <p className={styles.status}>{error}</p>}
+        <Gallery photos={photos} onImageClick={open} />
 
-        {!loading && images && (
-          <Gallery images={images} onImageClick={open} />
-        )}
-
-        {openIndex !== null && images && (
+        {openIndex !== null && (
           <Lightbox
-            images={images}
+            photos={photos}
             index={openIndex}
             onClose={close}
             onPrev={prev}

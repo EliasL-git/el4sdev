@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { mediaUrl } from '../lib/media'
 import styles from './Lightbox.module.css'
 
-export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
+export default function Lightbox({ photos, index, onClose, onPrev, onNext }) {
   const [meta, setMeta] = useState({ width: 0, height: 0, loaded: false })
-  const src = images[index]
+  const photo = photos[index]
 
   // Resolve image dimensions when the active image changes.
   useEffect(() => {
-    if (!src) return
+    if (!photo) return
     setMeta({ width: 0, height: 0, loaded: false })
     const img = new window.Image()
     img.onload = () =>
       setMeta({ width: img.naturalWidth, height: img.naturalHeight, loaded: true })
-    img.src = mediaUrl(src)
-  }, [src])
+    img.src = photo.url
+  }, [photo])
 
   // Keyboard shortcuts: Esc closes, ← / → navigate.
   useEffect(() => {
@@ -31,9 +30,9 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
     }
   }, [onClose, onPrev, onNext])
 
-  if (!src) return null
+  if (!photo) return null
 
-  const total = images.length
+  const total = photos.length
 
   return (
     <div
@@ -82,9 +81,9 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
 
       <div className={styles.stage} onClick={(e) => e.stopPropagation()}>
         <img
-          key={src}
+          key={photo.name}
           className={styles.img}
-          src={mediaUrl(src)}
+          src={photo.url}
           alt="Full-size view"
         />
       </div>
@@ -92,7 +91,7 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
       <div className={styles.bottomBar} onClick={(e) => e.stopPropagation()}>
         <span className={styles.meta}>
           <span className={styles.metaLabel}>File</span>
-          <span className={styles.metaValue}>{src}</span>
+          <span className={styles.metaValue}>{photo.name}</span>
         </span>
         {meta.loaded && (
           <span className={styles.meta}>
@@ -105,13 +104,13 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }) {
         <span className={styles.actions}>
           <a
             className={styles.actionLink}
-            href={mediaUrl(src)}
+            href={photo.url}
             target="_blank"
             rel="noopener noreferrer"
           >
             Open full
           </a>
-          <a className={styles.actionLink} href={mediaUrl(src)} download>
+          <a className={styles.actionLink} href={photo.url} download={photo.name}>
             Download
           </a>
         </span>

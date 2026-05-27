@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { mediaUrl } from '../lib/media'
+import React from 'react'
+import { photos } from '../lib/photos'
 import styles from './WorkStrip.module.css'
 
 const FEATURE_IMAGE = 'IMG_0541.JPEG'
 
 export default function WorkStrip() {
-  const [images, setImages] = useState([])
-
-  useEffect(() => {
-    let mounted = true
-    fetch(mediaUrl('list.json'))
-      .then((res) => (res.ok ? res.json() : []))
-      .then((list) => {
-        if (!mounted) return
-        const arr = Array.isArray(list) ? list : []
-        // Show up to 5 thumbnails on the home page, excluding the hero feature.
-        setImages(arr.filter((f) => f !== FEATURE_IMAGE).slice(0, 5))
-      })
-      .catch(() => {})
-    return () => {
-      mounted = false
-    }
-  }, [])
+  // Show up to 5 thumbnails on the home page, excluding the hero feature.
+  const items = photos.filter((p) => p.name !== FEATURE_IMAGE).slice(0, 5)
 
   function nav(e, to) {
     e.preventDefault()
@@ -32,7 +17,7 @@ export default function WorkStrip() {
     <section className={styles.section} aria-label="Selected work">
       <div className={styles.headRow}>
         <div className={styles.headLeft}>
-          <span className={styles.index}>008</span>
+          <span className={styles.index}>{String(photos.length).padStart(3, '0')}</span>
           <span className={styles.dash} aria-hidden="true" />
           <h2 className={styles.heading}>Selected work</h2>
         </div>
@@ -47,20 +32,20 @@ export default function WorkStrip() {
       </div>
 
       <div className={styles.strip}>
-        {images.length === 0 ? (
-          <div className={styles.placeholder}>Loading…</div>
+        {items.length === 0 ? (
+          <div className={styles.placeholder}>No photographs listed yet.</div>
         ) : (
-          images.map((src, i) => (
+          items.map((p, i) => (
             <a
-              key={src}
+              key={p.name}
               href="/photography"
               className={styles.tile}
               onClick={(e) => nav(e, '/photography')}
               style={{ animationDelay: `${i * 70}ms` }}
-              aria-label={`Open photography — ${src}`}
+              aria-label={`Open photography — ${p.name}`}
             >
               <img
-                src={mediaUrl(src)}
+                src={p.url}
                 alt=""
                 loading="lazy"
                 decoding="async"

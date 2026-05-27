@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Quotes from './Quotes'
-import { mediaUrl } from '../lib/media'
+import { photoUrl } from '../lib/photos'
 import styles from './Hero.module.css'
 
 const FEATURE_IMAGE = 'IMG_0541.JPEG'
@@ -67,7 +67,7 @@ export default function Hero() {
         <div className={styles.right}>
           <div className={styles.feature}>
             <img
-              src={mediaUrl(FEATURE_IMAGE)}
+              src={photoUrl(FEATURE_IMAGE)}
               alt="Featured photograph"
               className={styles.featureImg}
               loading="eager"
