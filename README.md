@@ -29,9 +29,7 @@ Quotes for the rotating hero blurb still live in `media/quotes.json`.
 - `index.html` — Vite entry
 - `src/main.jsx` — app bootstrap + tiny hash-style router
 - `src/pages/` — Home, Photography, NonCommercial, Freexyz
-- `src/components/` — SiteHeader, SiteFooter, Hero, Quotes, HoverReveal, Marquee, Magnetic, Cursor, Loader, PageTransition, Gallery, Lightbox
-- `src/lib/AppContext.jsx` — ready / transitioning / navigate state
-- `src/lib/useReveal.js` — IntersectionObserver-driven fade-up hook
+- `src/components/` — SiteHeader, SiteFooter, Hero, Quotes, WorkStrip, Gallery, Lightbox
 - `src/lib/photos.js` — auto-bundled photo registry
 - `src/lib/quotes.js` — bundled quote module
 - `src/styles/global.css` — design tokens + base styles
