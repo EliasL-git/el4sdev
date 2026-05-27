@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Quotes from './Quotes'
-import { photoUrl } from '../lib/photos'
+import { featured } from '../lib/photos'
 import styles from './Hero.module.css'
-
-const FEATURE_IMAGE = 'IMG_0541.JPEG'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -42,8 +40,7 @@ export default function Hero() {
           </p>
 
           <p className={styles.lede}>
-            A working archive of images, performances, and code &mdash;
-            ongoing, unfinished, and intentionally so.
+            I take pictures, i do coding!! and i alsooo do acting???
           </p>
 
           <div className={styles.actions}>
@@ -65,20 +62,24 @@ export default function Hero() {
         </div>
 
         <div className={styles.right}>
-          <div className={styles.feature}>
-            <img
-              src={photoUrl(FEATURE_IMAGE)}
-              alt="Featured photograph"
-              className={styles.featureImg}
-              loading="eager"
-              decoding="async"
-            />
-            <div className={styles.featureFrame} aria-hidden="true" />
-            <div className={styles.featureMeta}>
-              <span className={styles.featureLabel}>Selected</span>
-              <span className={styles.featureName}>{FEATURE_IMAGE.replace(/\.[A-Z]+$/i, '')}</span>
+          {featured && (
+            <div className={styles.feature}>
+              <img
+                src={featured.url}
+                alt="Featured photograph"
+                className={styles.featureImg}
+                loading="eager"
+                decoding="async"
+              />
+              <div className={styles.featureFrame} aria-hidden="true" />
+              <div className={styles.featureMeta}>
+                <span className={styles.featureLabel}>Selected</span>
+                <span className={styles.featureName}>
+                  {featured.name.replace(/\.[A-Z]+$/i, '')}
+                </span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

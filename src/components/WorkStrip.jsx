@@ -1,12 +1,13 @@
 import React from 'react'
-import { photos } from '../lib/photos'
+import { photos, featured } from '../lib/photos'
 import styles from './WorkStrip.module.css'
 
-const FEATURE_IMAGE = 'IMG_0541.JPEG'
-
 export default function WorkStrip() {
-  // Show up to 5 thumbnails on the home page, excluding the hero feature.
-  const items = photos.filter((p) => p.name !== FEATURE_IMAGE).slice(0, 5)
+  // Show up to 5 thumbnails, excluding whichever photo the hero is featuring
+  // so the same image doesn't appear twice on the home page.
+  const items = photos
+    .filter((p) => !featured || p.name !== featured.name)
+    .slice(0, 5)
 
   function nav(e, to) {
     e.preventDefault()
