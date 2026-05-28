@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--bg);
+  animation: fade-in 380ms ease both;
 }
 
 .main {
@@ -15,115 +15,101 @@
   width: 100%;
 }
 
-.scaffold {
+.headerInner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(20px, 5vh, 56px) var(--gutter) clamp(28px, 5vh, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.crumbs {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px clamp(18px, 3vw, 36px);
-  border-bottom: 1px solid var(--text);
+  gap: 10px;
   font-family: var(--font-caps);
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-muted);
-  overflow: hidden;
-  white-space: nowrap;
 }
 
-.scaffoldAccent {
-  color: var(--accent);
+.crumbs a {
+  transition: color var(--transition);
 }
 
-.scaffoldSep {
+.crumbs a:hover {
+  color: var(--text);
+}
+
+.crumbSep {
   color: var(--text-dim);
+}
+
+.crumbActive {
+  color: var(--accent);
 }
 
 .titleRow {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  padding: clamp(24px, 5vw, 60px) clamp(18px, 3vw, 36px) 18px;
+  padding-top: 4px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
 }
 
 .heading {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3.6rem, 14vw, 12rem);
-  letter-spacing: -0.055em;
-  line-height: 0.86;
+  font-weight: 300;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.92;
   color: var(--text);
-  text-transform: uppercase;
+}
+
+.headingItalic {
+  font-style: italic;
 }
 
 .count {
   display: inline-flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   color: var(--text-muted);
 }
 
 .countNum {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-style: italic;
+  font-size: 1.8rem;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
-  font-weight: 900;
-  letter-spacing: -0.04em;
 }
 
 .countLabel {
   font-family: var(--font-caps);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 0.72rem;
-  color: var(--text);
-}
-
-.subRow {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
-  align-items: end;
-  padding: 0 clamp(18px, 3vw, 36px) 24px;
-  border-bottom: 1px solid var(--text);
+  font-size: 0.7rem;
 }
 
 .lede {
-  max-width: 60ch;
-  font-size: 0.94rem;
+  max-width: 520px;
+  font-size: 0.96rem;
   line-height: 1.65;
   color: var(--text-muted);
 }
 
-.legend {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.legendItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.status {
   font-family: var(--font-caps);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
   text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.74rem;
   color: var(--text-muted);
-}
-
-.legendKey {
-  display: inline-block;
-  padding: 3px 7px;
-  border: 1px solid var(--text);
-  color: var(--text);
-  font-size: 0.6rem;
-}
-
-@media (max-width: 720px) {
-  .subRow { grid-template-columns: 1fr; }
-  .legend { justify-content: flex-start; }
+  margin: 80px auto;
+  text-align: center;
 }
