@@ -1,5 +1,0 @@
-.glitch {
-  display: inline-block;
-  font-variant-numeric: tabular-nums;
-  /* Width is unstable while shuffling — let the parent size it. */
-}
