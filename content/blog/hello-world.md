@@ -19,6 +19,6 @@ Writing clarifies thinking. Every post here is a snapshot of what I'm working on
 
 ## What to expect
 
-I'll write about projects like [Inkwell](https://github.com/EliasL-git/inkwell) — my visual novel engine — as well as photography trips, code deep-dives, and whatever else is on my mind.
+I'll write about the projects I'm building, photography trips, code deep-dives, and whatever else is on my mind.
 
 Stay tuned!
