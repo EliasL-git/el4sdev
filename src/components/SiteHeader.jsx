@@ -31,6 +31,13 @@ export default function SiteHeader({ current }) {
 
         <nav className={styles.nav} aria-label="Primary">
           <a
+            href="/blog"
+            className={`${styles.link} ${current && current.startsWith('/blog') ? styles.active : ''}`}
+            onClick={(e) => nav(e, '/blog')}
+          >
+            Blog
+          </a>
+          <a
             href="/photography"
             className={`${styles.link} ${current === '/photography' ? styles.active : ''}`}
             onClick={(e) => nav(e, '/photography')}
