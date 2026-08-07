@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import NonCommercial from './pages/NonCommercial'
 import Photography from './pages/Photography'
 import Freexyz from './pages/Freexyz'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import './styles/global.css'
 
 function Router() {
@@ -24,6 +26,10 @@ function Router() {
     return () => window.removeEventListener('popstate', onPop)
   }, [])
 
+  // Blog post route: /blog/:slug
+  const blogPostMatch = path.match(/^\/blog\/([^/]+)$/)
+  if (blogPostMatch) return <BlogPost slug={blogPostMatch[1]} />
+  if (path === '/blog') return <Blog />
   if (path === '/photography') return <Photography />
   if (path === '/non-commercial') return <NonCommercial />
   if (path === '/freexyz') return <Freexyz />
