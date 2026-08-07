@@ -50,6 +50,7 @@ export default function BlogPost({ slug }) {
   const idx = posts.findIndex(p => p.slug === slug)
   const prev = idx < posts.length - 1 ? posts[idx + 1] : null
   const next = idx > 0 ? posts[idx - 1] : null
+  const hasUpdated = post.updatedAt && post.updatedAt !== post.publishedAt
 
   return (
     <div className={styles.page}>
@@ -68,11 +69,25 @@ export default function BlogPost({ slug }) {
 
         <article className={styles.article}>
           <header className={styles.header}>
-            <time className={styles.date}>{formatDate(post.publishedAt)}</time>
             <h1 className={styles.title}>{post.title}</h1>
             {post.description && (
               <p className={styles.desc}>{post.description}</p>
             )}
+
+            <div className={styles.meta}>
+              <span className={styles.author}>{post.author}</span>
+              <span className={styles.metaSep}>·</span>
+              <time className={styles.metaDate}>{formatDate(post.publishedAt)}</time>
+              {hasUpdated && (
+                <>
+                  <span className={styles.metaSep}>·</span>
+                  <span className={styles.metaUpdated}>Updated {formatDate(post.updatedAt)}</span>
+                </>
+              )}
+              <span className={styles.metaSep}>·</span>
+              <span className={styles.metaReadTime}>{post.readTime}</span>
+            </div>
+
             {post.tags.length > 0 && (
               <div className={styles.tags}>
                 {post.tags.map((tag) => (
