@@ -10,15 +10,6 @@ tags:
 published_at: "2026-08-07"
 ---
 
-<aside>
-<img src="i" alt="i" width="40px" />
-
-## AI usage disclaimer
-
-This document was transcribed from my spoken thoughts using WhisperFlow, and formatted/structured with Notion AI.
-
-</aside>
-
 ## Disclaimer
 
 I want to start this document with a disclaimer: this is not meant to justify my behavior or "correct" myself. I just want to share my honest opinions about how my forced break from the Slack community was handled.
