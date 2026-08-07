@@ -1,3 +1,5 @@
+import { marked } from 'marked'
+
 // Parse YAML frontmatter from a markdown string
 function parseFrontmatter(raw) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -78,6 +80,7 @@ const blogModules = import.meta.glob('/content/blog/*.md', {
 });
 
 // Parse all posts, sorted by date descending
+// Markdown is pre-rendered to HTML at module load time so page renders are instant
 const posts = Object.entries(blogModules)
   .map(([filepath, raw]) => {
     const { meta, body } = parseFrontmatter(raw);
@@ -93,7 +96,7 @@ const posts = Object.entries(blogModules)
       publishedAt,
       updatedAt,
       readTime: estimateReadTime(body),
-      body,
+      html: marked.parse(body),
     };
   })
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
