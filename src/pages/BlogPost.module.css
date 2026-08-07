@@ -1,0 +1,273 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0908;
+  color: #e4e2dd;
+  font-family: 'Inter', sans-serif;
+}
+
+.main {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 1.5rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #a09b91;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back:hover {
+  color: #f5f3ef;
+}
+
+.article {
+  border-top: 1px solid #1e1c1a;
+  padding-top: 2rem;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.date {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #8a847c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #f5f3ef;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  line-height: 1.15;
+}
+
+.desc {
+  font-size: 1.1rem;
+  color: #9e9890;
+  line-height: 1.6;
+  margin: 0 0 0.8rem;
+  font-weight: 300;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: #1a1816;
+  color: #a09b91;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Markdown content styles */
+.content {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #d4d0c8;
+}
+
+.content h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #f5f3ef;
+  margin: 2.5rem 0 1rem;
+}
+
+.content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f0ede8;
+  margin: 2rem 0 0.75rem;
+}
+
+.content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ebe7e0;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.content p {
+  margin: 0 0 1.25rem;
+}
+
+.content a {
+  color: #c9a96e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.content a:hover {
+  color: #dbc07e;
+}
+
+.content strong {
+  color: #e8e4dc;
+  font-weight: 600;
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.4rem;
+}
+
+.content blockquote {
+  border-left: 3px solid #c9a96e;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  color: #b0a99e;
+  font-style: italic;
+}
+
+.content code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.88em;
+  background: #1a1816;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  color: #d4c9aa;
+}
+
+.content pre {
+  background: #1a1816;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+}
+
+.content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+.content hr {
+  border: none;
+  border-top: 1px solid #1e1c1a;
+  margin: 2.5rem 0;
+}
+
+.content img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1e1c1a;
+}
+
+.paginationLink {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  max-width: 45%;
+  transition: opacity 0.2s ease;
+}
+
+.paginationLink:hover {
+  opacity: 0.75;
+}
+
+.paginationNext {
+  text-align: right;
+}
+
+.paginationLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #8a847c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.paginationTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  color: #c5bfb5;
+  line-height: 1.3;
+}
+
+.notFoundTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  color: #f5f3ef;
+}
+
+.notFoundText {
+  color: #9e9890;
+  margin-top: 0.5rem;
+}
+
+.backLink {
+  color: #c9a96e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 100px 1rem 3rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .paginationLink {
+    max-width: 100%;
+  }
+
+  .paginationNext {
+    text-align: left;
+  }
+}
