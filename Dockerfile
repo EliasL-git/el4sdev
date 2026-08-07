@@ -3,7 +3,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm install
 
 # Copy source and build
 COPY . .
@@ -18,5 +18,4 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/media ./dist/media
 ENV PORT=3000
 EXPOSE 3000
-# Bind explicitly to 0.0.0.0 so Render's provided host/IP isn't used as the listen address
-CMD ["sh", "-c", "serve -s dist -l tcp://0.0.0.0:$PORT"]
+CMD ["sh", "-c", "serve -s dist -l $PORT"]
