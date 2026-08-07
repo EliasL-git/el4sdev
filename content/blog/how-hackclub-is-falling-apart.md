@@ -1,6 +1,6 @@
 ---
 title: How Hackclub Is Slowly Falling Apart, My Experience
-description: An honest reflection on my forced break from the Hack Club Slack community — what went wrong with the process, and how moderation communication could be improved.
+description: An honest reflection on my forced break from the Hack Club Slack community, what went wrong with the process, and how moderation communication could be improved.
 tags:
   - hackclub
   - community
@@ -18,13 +18,13 @@ I want to start this document with a disclaimer: this is not meant to justify my
 
 I don't believe that making me take a break was inherently a bad idea. I think it could be good for me and for the community.
 
-However, because it was described to me by the moderation team as a *break*, I believe that no community log should have been posted. To me—and likely to other members—it doesn't look like a break. It looks like a punishment.
+However, because it was described to me by the moderation team as a *break*, I believe that no community log should have been posted. To me, and likely to other members, it doesn't look like a break. It looks like a punishment.
 
 ## Context for my reaction
 
 I would also like to explain some of my behavior when the message was posted.
 
-I said something along the lines of being tired of the Hack Club community and thinking it was the cause of my ongoing mental struggles. I do have struggles, but not inherently because of Hack Club—because of other things.
+I said something along the lines of being tired of the Hack Club community and thinking it was the cause of my ongoing mental struggles. I do have struggles, but not inherently because of Hack Club. Because of other things.
 
 When that message was posted, I was in a state where I couldn't think clearly because I hadn't slept for 24 hours. The small amount of rest I got was on a couch that was too small for me, and later on a wooden floor.
 
