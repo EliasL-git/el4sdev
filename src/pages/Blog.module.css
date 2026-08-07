@@ -72,22 +72,12 @@
   opacity: 0.8;
 }
 
-.date {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #8a847c;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4rem;
-}
-
 .cardTitle {
   font-family: 'Fraunces', serif;
   font-size: 1.45rem;
   font-weight: 400;
   color: #f0ede8;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.35rem;
   line-height: 1.35;
 }
 
@@ -95,7 +85,40 @@
   font-size: 0.95rem;
   color: #9e9890;
   line-height: 1.6;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.5rem;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: #8a847c;
+  margin-bottom: 0.5rem;
+}
+
+.cardAuthor {
+  font-weight: 600;
+  color: #b5aea4;
+}
+
+.cardMetaSep {
+  color: #3d3934;
+  user-select: none;
+}
+
+.cardDate {
+  color: #8a847c;
+}
+
+.cardUpdated {
+  color: #8a847c;
+  font-style: italic;
+}
+
+.cardReadTime {
+  color: #8a847c;
 }
 
 .tags {
