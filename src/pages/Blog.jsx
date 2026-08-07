@@ -32,31 +32,46 @@ export default function Blog() {
           <p className={styles.empty}>No posts yet — check back soon.</p>
         ) : (
           <div className={styles.grid}>
-            {posts.map((post) => (
-              <article key={post.slug} className={styles.card}>
-                <a
-                  href={`/blog/${post.slug}`}
-                  className={styles.cardLink}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    window.navigate(`/blog/${post.slug}`)
-                  }}
-                >
-                  <time className={styles.date}>{formatDate(post.publishedAt)}</time>
-                  <h2 className={styles.cardTitle}>{post.title}</h2>
-                  {post.description && (
-                    <p className={styles.cardDesc}>{post.description}</p>
-                  )}
-                  {post.tags.length > 0 && (
-                    <div className={styles.tags}>
-                      {post.tags.map((tag) => (
-                        <span key={tag} className={styles.tag}>{tag}</span>
-                      ))}
+            {posts.map((post) => {
+              const hasUpdated = post.updatedAt && post.updatedAt !== post.publishedAt
+              return (
+                <article key={post.slug} className={styles.card}>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    className={styles.cardLink}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      window.navigate(`/blog/${post.slug}`)
+                    }}
+                  >
+                    <h2 className={styles.cardTitle}>{post.title}</h2>
+                    {post.description && (
+                      <p className={styles.cardDesc}>{post.description}</p>
+                    )}
+                    <div className={styles.cardMeta}>
+                      <span className={styles.cardAuthor}>{post.author}</span>
+                      <span className={styles.cardMetaSep}>·</span>
+                      <time className={styles.cardDate}>{formatDate(post.publishedAt)}</time>
+                      {hasUpdated && (
+                        <>
+                          <span className={styles.cardMetaSep}>·</span>
+                          <span className={styles.cardUpdated}>Updated {formatDate(post.updatedAt)}</span>
+                        </>
+                      )}
+                      <span className={styles.cardMetaSep}>·</span>
+                      <span className={styles.cardReadTime}>{post.readTime}</span>
                     </div>
-                  )}
-                </a>
-              </article>
-            ))}
+                    {post.tags.length > 0 && (
+                      <div className={styles.tags}>
+                        {post.tags.map((tag) => (
+                          <span key={tag} className={styles.tag}>{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </a>
+                </article>
+              )
+            })}
           </div>
         )}
       </main>
