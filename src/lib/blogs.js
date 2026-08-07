@@ -63,6 +63,13 @@ function parseFrontmatter(raw) {
   return { meta, body };
 }
 
+// Estimate read time from word count (225 wpm average)
+function estimateReadTime(body) {
+  const words = body.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 225));
+  return `${minutes} min read`;
+}
+
 // Load all markdown blog posts at build time via Vite glob
 const blogModules = import.meta.glob('/content/blog/*.md', {
   query: '?raw',
@@ -75,12 +82,17 @@ const posts = Object.entries(blogModules)
   .map(([filepath, raw]) => {
     const { meta, body } = parseFrontmatter(raw);
     const slug = filepath.replace('/content/blog/', '').replace('.md', '');
+    const publishedAt = meta.published_at || meta.date || '';
+    const updatedAt = meta.updated_at || publishedAt;
     return {
       slug,
       title: meta.title || slug,
       description: meta.description || '',
+      author: meta.author || 'el4s',
       tags: Array.isArray(meta.tags) ? meta.tags : meta.tags ? [meta.tags] : [],
-      publishedAt: meta.published_at || meta.date || '',
+      publishedAt,
+      updatedAt,
+      readTime: estimateReadTime(body),
       body,
     };
   })
