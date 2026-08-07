@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { marked } from 'marked'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import { getPostBySlug, getAllPosts } from '../lib/blogs'
@@ -45,7 +44,6 @@ export default function BlogPost({ slug }) {
     )
   }
 
-  const html = marked.parse(post.body)
   const posts = getAllPosts()
   const idx = posts.findIndex(p => p.slug === slug)
   const prev = idx < posts.length - 1 ? posts[idx + 1] : null
@@ -99,7 +97,7 @@ export default function BlogPost({ slug }) {
 
           <div
             className={styles.content}
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </article>
 
