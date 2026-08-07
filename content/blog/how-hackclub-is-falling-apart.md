@@ -81,10 +81,59 @@ A better process would clearly communicate:
 - What improvements are expected.
 - How future conflicts should be handled.
 
+---
+
+## The experience from other Hack Clubbers
+
+I'm not the only one who has run into issues with how Hack Club moderation operates. My friend Noname, a former reviewer and support staff member at Macondo, wrote about their own experience back in July.
+
+Here are the key points from their account, which mirror a lot of what I've described.
+
+### When the Code of Conduct becomes a "vibe check"
+
+Noname was temporarily banned from a channel for publicly stating that they had blocked someone who had previously bullied them. The person they blocked had already received warnings from Fire Department.
+
+Let that sink in. Blocking someone, staying away from a bully, got them punished.
+
+The Code of Conduct explicitly says: *"If someone asks you to leave them alone, you must leave them alone."* Blocking is the strongest form of leaving someone alone. Yet moderation called it "bad natured", "unnecessary", and "provoking".
+
+Here is the core problem: the CoC isn't rule-based. It's vibe-based.
+
+The section moderators lean on most is "Make conflict productive", which contains statements like:
+
+> Do not escalate, even when provoked.
+>
+> Think about how your words will be interpreted.
+>
+> Sometimes, it's better to simply refrain from saying anything at all.
+>
+> Be good, not just not bad.
+
+These aren't rules. They're feelings. And when enforcement is based on feelings, it becomes inconsistent, unpredictable, and in Noname's case, outright censorious.
+
+### A pattern, not an incident
+
+Noname's story doesn't stop at one event. They were also punished in the past for:
+
+- Protecting themselves and stating a boundary.
+- Disengaging from someone who previously bullied them.
+- Defending their company when someone threatened to hack its infrastructure.
+- Expressing frustration with moderation decisions.
+
+None of these violated the Code of Conduct. But they violated someone's *interpretation* of it.
+
+That is the same pattern I experienced. Decisions driven by feelings about a person rather than by what they actually did. A process that treats explanations as defiance and boundaries as provocation.
+
+You can read Noname's full post at [ecli.app/blog/noname/hackclub](https://ecli.app/blog/noname/hackclub).
+
+---
+
 ## Conclusion
 
 The way this situation was communicated created confusion and frustration.
 
 The process lacked clarity, relied heavily on assumptions, and did not feel like a collaborative attempt to resolve the underlying issues.
+
+And I'm not alone. Other community members, people who have contributed real time and effort to Hack Club, have walked away with the same bruises. That should tell the moderation team something.
 
 Improving transparency, focusing on specific actions, and allowing more meaningful discussion would make moderation decisions feel more fair and accountable.
