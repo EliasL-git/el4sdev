@@ -1,0 +1,130 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0908;
+  color: #e4e2dd;
+  font-family: 'Inter', sans-serif;
+}
+
+.main {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 1.5rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-family: 'Fraunces', serif;
+  font-size: 2.75rem;
+  font-weight: 300;
+  color: #f5f3ef;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #a09b91;
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.empty {
+  text-align: center;
+  color: #6b6560;
+  font-size: 1rem;
+  padding: 3rem 0;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  border-bottom: 1px solid #1e1c1a;
+  padding-bottom: 1.75rem;
+}
+
+.card:last-child {
+  border-bottom: none;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.cardLink:hover {
+  opacity: 0.8;
+}
+
+.date {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #8a847c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.cardTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: #f0ede8;
+  margin: 0 0 0.4rem;
+  line-height: 1.35;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: #9e9890;
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: #1a1816;
+  color: #a09b91;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 100px 1rem 3rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+}
